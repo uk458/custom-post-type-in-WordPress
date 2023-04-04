@@ -1,0 +1,15 @@
+function create_custom_post() {
+    register_post_type( 'custom',
+        array(
+            'labels' => array(
+                'name' => __( 'Custom Posts' ),
+                'singular_name' => __( 'Custom Post' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'custom-posts'),
+            'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' )
+        )
+    );
+}
+add_action( 'init', 'create_custom_post' );
